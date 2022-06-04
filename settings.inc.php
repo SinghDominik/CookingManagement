@@ -8,9 +8,9 @@
     session_start();
 
     //database
-    define("DB_HOST", "");
-    define("DB_USER", "");
+    define("DB_HOST", "localhost");
+    define("DB_USER", "root");
     define("DB_PASSWORD", "");
-    define("DB_NAME", "");
-    define("DB_CHARSET", "");
+    define("DB_NAME", "cooking_management");
+    define("DB_CHARSET", "UTF8");
 ?>

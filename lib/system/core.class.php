@@ -29,6 +29,7 @@
             //--------------------------------------
 
             $controller_path = PATH . "/controller/" . $this->page . "_controller.class.php";
+            
             if(!file_exists($controller_path)){
                 $this->page = "error404";
                 $this->process();
@@ -39,12 +40,12 @@
             $page_class_name = $this->page . "_controller";
             $page_class = new $page_class_name($this->db_object);
             
-            if($page_class->IsLoginNeeded() && !isset($_SESSION["user_id"])){
+            /*if($page_class->IsLoginNeeded() && !isset($_SESSION["user_id"])){
                 $this->page = "login";
                 $this->process();
                 
                 return false;
-            }
+            }*/
             
             $this->vars = $page_class->process();
             
