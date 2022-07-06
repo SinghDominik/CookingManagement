@@ -2,23 +2,18 @@
     class core{
         private $page = null;
         
-        private $vars = array();
+        private $vars = null;
 
         private $db_object = null;
         private $error_handler_object = null;
 
-        public function __construct(){
+        public function __construct($page){
             require_once "./settings.inc.php";
             require_once PATH . "/lib/system/db.class.php";
             require_once PATH . "/lib/system/template.class.php";
 
-            if(isset($_GET["page"]) && $_GET["page"] != ""){
-                $this->page = $_GET["page"];
-            }else{
-                $this->page = "index";
-            }
-
             $this->db_object = new db();
+            $this->page = $page;
 
             return true;
         }
@@ -29,32 +24,35 @@
             //--------------------------------------
 
             $controller_path = PATH . "/controller/" . $this->page . "_controller.class.php";
+            $tpl_path = PATH . "templates/" . $this->page . ".tpl";
             
-            if(!file_exists($controller_path)){
+            if(!file_exists($tpl_path)){
                 $this->page = "error404";
                 $this->process();
-                return false;
+                die();
             }
-            require_once $controller_path;
             
-            $page_class_name = $this->page . "_controller";
-            $page_class = new $page_class_name($this->db_object);
-            
-            /*if($page_class->IsLoginNeeded() && !isset($_SESSION["user_id"])){
-                $this->page = "login";
-                $this->process();
+            if(file_exists($controller_path)){
+                require_once $controller_path;
                 
-                return false;
-            }*/
-            
-            $this->vars = $page_class->process();
+                $page_class_name = $this->page . "_controller";
+                $page_class = new $page_class_name($this->db_object);
+                
+                if($page_class->IsLoginNeeded() && !isset($_SESSION["user_id"])){
+                    $this->page = "login";
+                    $this->process();
+                    
+                    return false;
+                }
+                
+                $this->vars = $page_class->process();
+            }
             
             //--------------------------------------
             //Init Template Engine
             //--------------------------------------
-            $template_engine = new template($this->page, $this->vars, $this->db_object);
+            $template_engine = new template($this->page, $this->db_object, $this->vars);
             $template_engine->render();
-            
             return true;
         }
 

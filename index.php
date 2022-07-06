@@ -5,7 +5,13 @@
         require_once PATH . "/lib/" . $model_class . ".class.php";
     });
 
-    $core = new core();
+    if(isset($_GET["page"]) && $_GET["page"] != ""){
+        $core = new core($_GET["page"]);
+    }else{
+        $core = new core("index");
+    }
+
+   
     $core->process();
     $core->show();
 ?>

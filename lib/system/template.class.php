@@ -3,7 +3,7 @@
         private $page = null;
         private $vars = array();
 
-        public function __construct($page, $vars, $db_object){
+        public function __construct($page, $db_object, $vars){
             $this->page = $page;
             $this->vars = $vars;
             $this->db_object = $db_object;

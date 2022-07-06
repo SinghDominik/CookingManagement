@@ -1,0 +1,6 @@
+{
+    "short_name": "Koch Manager",
+    "name": "Koch Manager",
+    "display": "standalone",
+    "description": "Manager für Rezepte und Zutaten",
+}
