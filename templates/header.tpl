@@ -8,3 +8,9 @@
     <title>Koch Manager</title>
 </head>
 <body>
+    <div id="page-header">
+        <div id="page-header-content">
+            <h2><strong>Was solll ich heute kochen?</strong></h2><br />
+            Ideen für heute:
+        </div>
+    </div>

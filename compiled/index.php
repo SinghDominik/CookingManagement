@@ -7,8 +7,15 @@
     <link href="./css/main.css" rel="stylesheet">
     <title>Koch Manager</title>
 </head>
-<body>    <div id="content">
-        <?php require_once(PATH . "/templates/menue.tpl"); ?>
-        
+<body>
+    <div id="page-header">
+        <div id="page-header-content">
+            <h2><strong>Was solll ich heute kochen?</strong></h2><br />
+            Ideen für heute:
+        </div>
+    </div>    <div id="page-content">
+        <form action="" method="GET" id="recipe-search">
+            <input type="text" placeholder="Suchen" />
+        </form>
     </div></body>
 </html>
