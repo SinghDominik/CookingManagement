@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="./css/main.css" rel="stylesheet">
     <title>Koch Manager</title>
 </head>
 <body>
     <div id="page-header">
-        <div id="page-header-content">
-            <h2><strong>Was solll ich heute kochen?</strong></h2><br />
-            Ideen für heute:
+        <div id="page-header-box">
+            <div id="page-header-content">
+                <div>
+                    <h2><strong>Was solll ich heute kochen?</strong></h2><br />
+                    Ideen für heute:
+                </div>
+            </div>
         </div>
     </div>
