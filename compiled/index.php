@@ -24,71 +24,22 @@
         </form>
         
         <div id="list-items">
-            <div class="item">
-                <a href="">
-                    <div class="item-image">
-                        <img src="./res/example_image.jpg" />
+            <?php
+            foreach($this->vars["recipes"] as $key => $value){
+                ?>
+                    <div class="item">
+                        <a href="">
+                            <div class="item-image">
+                                <img src="./res/example_image.jpg" />
+                            </div>
+                        </a>
+                        <div class="item-name">
+                            <?= $value["name"]; ?>
+                        </div>
                     </div>
-                </a>
-                <div class="item-name">
-                    Spaghetti Bolognese
-                </div>
-            </div>
-
-            <div class="item">
-                <a href="">
-                    <div class="item-image">
-                        <img src="./res/example_image.jpg" />
-                    </div>
-                </a>
-                <div class="item-name">
-                    Spaghetti Bolognese
-                </div>
-            </div>
-
-            <div class="item">
-                <a href="">
-                    <div class="item-image">
-                        <img src="./res/example_image.jpg" />
-                    </div>
-                </a>
-                <div class="item-name">
-                    Spaghetti Bolognese
-                </div>
-            </div>
-
-            <div class="item">
-                <a href="">
-                    <div class="item-image">
-                        <img src="./res/example_image.jpg" />
-                    </div>
-                </a>
-                <div class="item-name">
-                    Spaghetti Bolognese
-                </div>
-            </div>
-
-            <div class="item">
-                <a href="">
-                    <div class="item-image">
-                        <img src="./res/example_image.jpg" />
-                    </div>
-                </a>
-                <div class="item-name">
-                    Spaghetti Bolognese
-                </div>
-            </div>
-
-            <div class="item">
-                <a href="">
-                    <div class="item-image">
-                        <img src="./res/example_image.jpg" />
-                    </div>
-                </a>
-                <div class="item-name">
-                    Spaghetti Bolognese
-                </div>
-            </div>
+                <?php
+            }
+            ?>
         </div>
     </div>        <div id="page-footer">
             <div id="page-footer-menue">

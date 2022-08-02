@@ -12,6 +12,7 @@
         private function InterpreteTemplateLang($template){
             if(count($this->vars)){
                 foreach ($this->vars as $key => $value){
+                    
                     if(gettype($value) != "array") $template = preg_replace("/\[@(.*)\]/", $value . "<br />", $template);
                 }
             }else{

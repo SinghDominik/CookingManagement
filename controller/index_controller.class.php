@@ -24,7 +24,12 @@
         }
 
         public function process(){
-            //PAGE CODE HERE
+            if(!isset($_GET["mode"]) || $_GET["mode"] == "all"){
+                $recipes = $this->db_object->query("SELECT * FROM recipes ORDER BY id DESC");
+
+                $this->vars["recipes"] = $recipes->fetchAll();
+            }
+            
             
             return $this->vars;
         }
