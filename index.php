@@ -28,11 +28,11 @@
     foreach($routes as $route => $action){
         $reg_ex = "/$route/";
 
-        if(preg_match($reg_ex, $request_uri)){
-            $core = new core($action);
+        if(preg_match($reg_ex, $request_uri, $matches)){
+            $core = new core($action, $matches);
             $core->process();
             $core->show();
-
+            
             return;
         }
     }

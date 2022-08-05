@@ -1,8 +1,8 @@
 <?php
-    class index_controller{
+    class recipe_controller{
         private $vars = array();
         private $arguments = array();
-        
+
         private $db_object = null;
     
         //--------
@@ -26,12 +26,6 @@
         }
 
         public function process(){
-            if(!isset($_GET["mode"]) || $_GET["mode"] == "all"){
-                $recipes = $this->db_object->query("SELECT * FROM recipes ORDER BY id DESC");
-
-                $this->vars["recipes"] = $recipes->fetchAll();
-            }
-            
             
             return $this->vars;
         }

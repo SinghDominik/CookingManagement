@@ -2,28 +2,30 @@
     class core{
         private $page = null;
         
-        private $vars = null;
+        private $vars = array();
+        private $arguments = array();
 
         private $db_object = null;
         private $error_handler_object = null;
 
-        public function __construct($page){
+        public function __construct($page, $arguments){
             require_once "./settings.inc.php";
             require_once PATH . "/lib/system/db.class.php";
             require_once PATH . "/lib/system/template.class.php";
 
             $this->db_object = new db();
             $this->page = $page;
-            
+
+            array_shift($arguments);
+            $this->arguments = $arguments;
+
             return true;
         }
 
         public function process(){
-            
             //--------------------------------------
             //Init User Class / Processing of Page
             //--------------------------------------
-
             $controller_path = PATH . "/controller/" . $this->page . "_controller.class.php";
             $tpl_path = PATH . "templates/" . $this->page . ".tpl";
             
@@ -37,7 +39,8 @@
                 require_once $controller_path;
                 
                 $page_class_name = $this->page . "_controller";
-                $page_class = new $page_class_name($this->db_object);
+                
+                $page_class = new $page_class_name($this->db_object, $this->arguments);
                 
                 if($page_class->IsLoginNeeded() && !isset($_SESSION["user_id"])){
                     $this->page = "login";
@@ -45,7 +48,6 @@
                     
                     return false;
                 }
-                
                 $this->vars = $page_class->process();
             }
             
