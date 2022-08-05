@@ -5,13 +5,35 @@
         require_once PATH . "/lib/" . $model_class . ".class.php";
     });
 
-    if(isset($_GET["page"]) && $_GET["page"] != ""){
+    /*if(isset($_GET["page"]) && $_GET["page"] != ""){
         $core = new core($_GET["page"]);
     }else{
         $core = new core("index");
-    }
+    }*/
 
-   
-    $core->process();
-    $core->show();
+    require_once("./settings.inc.php");
+
+    $request_uri = $_SERVER['REQUEST_URI'];
+    $page_folder = "/CookingManagement";
+
+    $routes = array();
+
+    $routes["\/suggestion"] = "suggestion";
+    $routes["\/list\/create"] = "create_recipe";
+    $routes["\/list\/recipe\/(\d+)"] = "recipe";
+    $routes["\/list\/"] = "index";
+
+    $routes["\/"] = "index";
+
+    foreach($routes as $route => $action){
+        $reg_ex = "/$route/";
+
+        if(preg_match($reg_ex, $request_uri)){
+            $core = new core($action);
+            $core->process();
+            $core->show();
+
+            return;
+        }
+    }
 ?>

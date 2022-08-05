@@ -14,11 +14,12 @@
 
             $this->db_object = new db();
             $this->page = $page;
-
+            
             return true;
         }
 
         public function process(){
+            
             //--------------------------------------
             //Init User Class / Processing of Page
             //--------------------------------------
@@ -51,6 +52,7 @@
             //--------------------------------------
             //Init Template Engine
             //--------------------------------------
+            
             $template_engine = new template($this->page, $this->db_object, $this->vars);
             $template_engine->render();
             return true;

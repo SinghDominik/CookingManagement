@@ -10,7 +10,7 @@
                     <div class="item">
                         <a href="">
                             <div class="item-image">
-                                <img src="./res/example_image.jpg" />
+                                <a href="./list/recipe/<?php echo $value["id"]; ?>"><img src="./res/example_image.jpg" /></a>
                             </div>
                         </a>
                         <div class="item-name">
