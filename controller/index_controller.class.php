@@ -32,7 +32,6 @@
                 $this->vars["recipes"] = $recipes->fetchAll();
             }
             
-            
             return $this->vars;
         }
     }

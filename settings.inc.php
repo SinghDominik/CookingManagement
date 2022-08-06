@@ -1,6 +1,8 @@
 <?php
     //general
     define("PATH", realpath($_SERVER["DOCUMENT_ROOT"]) . "/CookingManagement/");
+    define("PROJECT_FOLDER", "/CookingManagement/");
+    
     define("USE_LANGUAGE", 0);
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);

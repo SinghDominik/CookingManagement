@@ -26,6 +26,11 @@
         }
 
         public function process(){
+            if(!isset($_GET["mode"]) || $_GET["mode"] == "all"){
+                $recipes = $this->db_object->query("SELECT * FROM recipes WHERE id = ?", array($this->arguments[0]));
+
+                $this->vars["recipes"] = $recipes->fetchAll();
+            }
             
             return $this->vars;
         }

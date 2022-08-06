@@ -109,6 +109,9 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    position: fixed;
+    bottom: 0px;
 }
 
 #page-footer #page-footer-menue{

@@ -8,9 +8,9 @@
             foreach($this->vars["recipes"] as $key => $value){
                 ?>
                     <div class="item">
-                        <a href="">
+                        <a href="<?php echo PROJECT_FOLDER; ?>list/recipe/<?php echo $value["id"]; ?>">
                             <div class="item-image">
-                                <a href="./list/recipe/<?php echo $value["id"]; ?>"><img src="./res/example_image.jpg" /></a>
+                               <img src="<?php echo PROJECT_FOLDER; ?>res/example_image.jpg" />
                             </div>
                         </a>
                         <div class="item-name">

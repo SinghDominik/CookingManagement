@@ -27,7 +27,7 @@
 
         public function process(){
             
-            $recipes = $this->db_object->query("SELECT * FROM recipes ORDER BY RAND() LIMIT 4");
+            $recipes = $this->db_object->query("SELECT * FROM recipes ORDER BY RAND() LIMIT 2");
 
             $this->vars["recipes"] = $recipes->fetchAll();
             return $this->vars;
